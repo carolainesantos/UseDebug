@@ -1,5 +1,5 @@
 import ServicoExercicio from "../services/service.js";
-const resultado = 0;
+// const resultado = 0;
 const servico = new ServicoExercicio();
 
 export default class ControllerExercicio {
@@ -8,7 +8,7 @@ export default class ControllerExercicio {
       const num1 = req.body.num1;
       const num2 = req.body.num2;
 
-      const result = servico.Somar(num1 + num2);
+      const result = servico.Somar(Number(num1), Number(num2));
 
       res.status(200).json({ nome: result });
     } catch (error) {
@@ -21,7 +21,7 @@ export default class ControllerExercicio {
       const num1 = req.body.num1;
       const num2 = req.body.num2;
 
-      const result = -servico.Subtrair(num1 - num2);
+      const result = servico.Subtrair(num1 - num2);
 
       res.status(200).json({ Subtrair: result });
     } catch (error) {
