@@ -23,7 +23,7 @@ export default class ControllerExercicio {
 
       const result = -servico.Subtrair(num1 - num2);
 
-      res.status(200).json({ nome: result });
+      res.status(200).json({ Subtrair: result });
     } catch (error) {
       res.status(500).json({ message: "Erro ao Subtrair" });
     }
