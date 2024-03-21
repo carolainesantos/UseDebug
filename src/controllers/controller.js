@@ -34,11 +34,15 @@ export default class ControllerExercicio {
       const num1 = req.body.num1;
       const num2 = req.body.num2;
 
+      if (num2 === 0) {
+        throw new Error("Não é possível dividir por zero.");
+      }
+
       const result = servico.Dividir(num1, num2);
 
-      res.status(200).json({ nome: result });
+      res.status(200).json({ resultado: result });
     } catch (error) {
-      res.status(500).json({ message: "Erro ao Dividir" });
+      res.status(500).json({ message: "Erro ao Dividir: " + error.message });
     }
   }
 
@@ -49,7 +53,7 @@ export default class ControllerExercicio {
 
       const result = servico.Multiplicar(num1, num2);
 
-      res.status(200).json({ nome: resultado });
+      res.status(200).json({ result });
     } catch (error) {
       res.status(500).json({ message: "Erro ao Multiplicar" });
     }
